@@ -1,4 +1,5 @@
 __pycache__/
 env/
+json_dataset/
 
 config.py
