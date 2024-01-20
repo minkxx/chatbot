@@ -1,6 +1,8 @@
 import openai
 import json
 
+import config
+
 def fileLoadRead(file_path, role, content):
     with open(file_path, "r") as r:
         data = json.load(r)
@@ -23,10 +25,10 @@ class chatbot:
         try:
             fileLoadRead(self.file_path, "user", user_prompt)
             self.final_user_data = fileRead(self.file_path)
-            self.response = openai.ChatCompletion.create(
+            self.response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=self.final_user_data,
-                temperature=0.5,
+                temperature=1,
                 max_tokens=256,
                 top_p=1,
                 frequency_penalty=0,
@@ -39,7 +41,7 @@ class chatbot:
             print(e)
 
 if __name__ == "__main__":
-    Ana = chatbot("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", "json_dataset//new.json")
+    Ana = chatbot(config.OPENAI_API_KEY, "json_dataset//new.json")
 
     print("Chatroom - AnaAI")
     while True:

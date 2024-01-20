@@ -8,11 +8,6 @@ def fileLoadRead(file_path, role, content):
         data.append(append_data)
         json.dump(data, w)
 
-# def fileRead(file_path):
-#     with open(file_path, "r") as rr:
-#         data = json.load(rr)
-#         return data
-
 while True:
     user_prompt = input("user : ")
     if user_prompt == "q":
