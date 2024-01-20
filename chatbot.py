@@ -14,7 +14,7 @@ def fileLoadRead(file_path, role, content):
 def fileRead(file_path):
     with open(file_path, "r") as rr:
         data = json.load(rr)
-        return data
+    return data
 
 class chatbot:
     def __init__(self, openai_api_key, json_file_path):
@@ -34,14 +34,14 @@ class chatbot:
                 frequency_penalty=0,
                 presence_penalty=0
             )
-            self.ai_data = self.response["choices"][0]["message"]["content"]
+            self.ai_data = self.response.choices[0].message.content
             fileLoadRead(self.file_path, "assistant", self.ai_data)
             return self.ai_data
         except Exception as e:
             print(e)
 
 if __name__ == "__main__":
-    Ana = chatbot(config.OPENAI_API_KEY, "json_dataset//new.json")
+    Ana = chatbot(config.OPENAI_API_KEY, "json_dataset//chat.json")
 
     print("Chatroom - AnaAI")
     while True:
