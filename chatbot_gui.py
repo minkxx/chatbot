@@ -1,3 +1,5 @@
+# version 0.0.2
+
 import customtkinter as ctk
 from chatbot import chatbot
 
