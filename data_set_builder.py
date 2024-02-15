@@ -3,6 +3,7 @@
 import os
 import json
 
+
 def createData(file_name, role, content):
     with open(file_name, "r") as r:
         data = json.load(r)
@@ -10,6 +11,7 @@ def createData(file_name, role, content):
         append_data = {"role": role, "content": content}
         data.append(append_data)
         json.dump(data, w)
+
 
 if __name__ == "__main__":
     if not os.path.exists("json_dataset/"):
